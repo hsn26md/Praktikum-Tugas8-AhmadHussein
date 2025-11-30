@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas JavaScript (Soal 1 & 4)</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        input { margin-bottom: 10px; padding: 5px; }
+        hr { margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <h2>Menghitung Luas & Keliling Lingkaran</h2>
+    <label for="jarijari">Masukkan Jari-jari (r): </label>
+    <input type="number" id="jarijari" placeholder="Nilai jari-jari">
+    <br>
+    
+    <p>Luas Lingkaran: <span id="hasil_luas">0</span></p>
+    <p>Keliling Lingkaran: <span id="hasil_keliling">0</span></p>
+    
+    <button type="button" onclick="hitung_lingkaran()">Hitung Lingkaran</button>
+
+    <hr>
+
+    <h2>Menghitung Jumlah Dua Bilangan</h2>
+    <h4>(Hasil otomatis berubah saat angka diinput dan kursor pindah/enter)</h4>
+    
+    <label for="bil1">Bilangan 1: </label>
+    <input type="number" id="bil1" onchange="hitung_jumlah()" placeholder="Angka pertama">
+    <br>
+    
+    <label for="bil2">Bilangan 2: </label>
+    <input type="number" id="bil2" onchange="hitung_jumlah()" placeholder="Angka kedua">
+    <br>
+    <br>
+    
+    <b>Hasil Penjumlahan: <span id="hasil_jumlah">0</span></b>
+
+    <script>
+        function hitung_lingkaran() {
+            let r = document.getElementById("jarijari").value;
+            
+            const phi = 3.14; 
+
+            let luas = phi * r * r;
+
+            let keliling = 2 * phi * r;
+
+            document.getElementById("hasil_luas").innerHTML = luas;
+            document.getElementById("hasil_keliling").innerHTML = keliling.toFixed(2);
+        }
+
+        function hitung_jumlah() {
+            let a = parseFloat(document.getElementById("bil1").value) || 0;
+            let b = parseFloat(document.getElementById("bil2").value) || 0;
+
+            let total = a + b;
+
+            document.getElementById("hasil_jumlah").innerHTML = total;
+        }
+    </script>
+</body>
+</html>
